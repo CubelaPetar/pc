@@ -17,13 +17,14 @@ title = "CubelaPetar"
 [params.author]
   name = "Petar Cubela"
   email = "mail@petarcubela.de"
-  image = "https://github.com/CubelaPetar.png"
+#image = "https://github.com/CubelaPetar.png"
+  image = "img/bookstore.jpg"
   imageQuality = 96
   headline = "Linux Server & Network Administrator"
   bio = "Physicist, Linux enthusiast, self-hoster and Geek in general."
  links = [
      { email = "mailto:info@petarcubela.de" },
-#     { link = "https://link-to-some-website.com/" },
+     { link = "https://petarcubela.de" },
 #     { amazon = "https://www.amazon.com/hz/wishlist/ls/wishlist-id" },
 #     { apple = "https://www.apple.com" },
 #     { blogger = "https://username.blogspot.com/" },
