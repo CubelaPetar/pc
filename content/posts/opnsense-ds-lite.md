@@ -1,8 +1,9 @@
 --- 
 title: "OPNsense with DS-Lite"
-desciption: "Setup OPNsense firewall with DS-lite at home"
+desciption: "Setup OPNsense firewall with DS-lite"
 categories: ["tutorial", "network"]
 tags: ["opnsense", "network", "firewall", "ds-lite"]
+date: 2026-06-05
 draft: true
 ---
 

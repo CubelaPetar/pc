@@ -3,10 +3,11 @@ title: "About Me"
 layout: "single"
 desciption: "Attempt in self-assesment."
 categories: ["thougths", "life"]
-tags: ["me"]
+date: 2026-06-05
+tags: ["me", "physics", "linux"]
 ---
 
-# me
+# About
 
 ## intro
 
@@ -25,5 +26,7 @@ You will find here, presumably, technical blog articles about self-hosting, open
 
 I will write texts in German and English. Some in both languages, some only exclusively in one.
 
-## 
+## history
+
+
 
