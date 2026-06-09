@@ -28,5 +28,8 @@ I will write texts in German and English. Some in both languages, some only excl
 
 ## history
 
+After finishing school I developed a deep interest for science and physics; especially theoretical physics. Thus, I decided I wanted to study physics which I did at the LMU in Munich, Germany. 
+
+...
 
 
