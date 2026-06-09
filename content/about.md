@@ -32,4 +32,6 @@ After finishing school I developed a deep interest for science and physics; espe
 
 ...
 
+Linux is great to procrastinate while should be writing your masters thesis.
+
 
