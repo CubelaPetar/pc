@@ -34,6 +34,6 @@ jobs:
           chmod 600 /tmp/deploy_key
 
           rsync -arvh --delete-after \
-            -e "ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no" \
+            -e "ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no -p 69" \
             public/* \
             $VPS_USER@$VPS_HOST:/home/petar/appdata/petarcubela/public/
