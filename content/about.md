@@ -1,8 +1,8 @@
 --- 
 title: "About Me"
 layout: "single"
-desciption: "Attempt in self-assesment."
-categories: ["thougths", "life"]
+description: "Attempt in self-assessment."
+categories: ["thoughts", "life"]
 date: 2026-06-05
 tags: ["me", "physics", "linux"]
 ---
