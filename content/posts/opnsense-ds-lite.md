@@ -12,7 +12,7 @@ draft: true
 ## Introduction
 
 I have a DS-Lite connection at my WAN at home. I'm using a OPNsense firewall and needed to combine the two. 
-First I thought I should contact my ISP and ask if I could get a proper dual stack with public IPv4 and IPv6 addresses
+First I thought I should contact my ISP and ask if I could get a proper dual stack setup with public IPv4 and IPv6 addresses
 especially because of problems with VPN access from networks which are IPv4 only. But I decided this would be great to take
 the IPv6 adoption more serious and to try to deal with an IPv6-only connection at the WAN-side. 
 I found a nice solution to access my home network via VPN from IPv4-only networks which will be presented in a later article.
@@ -21,9 +21,21 @@ The OPNsense is able to work with DS-lite. Though it was not without problems.
 
 ## What is DS lite?
 
-Something very annoying.
+Something very annoying. 
+
+- dynamic public IPv6 address.
+- CGNAT IPv4 address (AFTR / RFC6333).
 
 ## OPNsense Configuration 
+
+- FritzBox in PPPoE-Passthrough mode (get a draytek modem. g.fast required).
+- IPv6 via PPPoE on some VLAN (FritzBox does this automatically).
+- IPv4 via a GIF tunnel (needs IPv6).
+- Setup up PPPoE connection under devices.
+- WAN interface config: 
+    - IPv6 via DHCPv6. Client Conf: (Prefix Delegation Size: 56, Send Prefix Hint: True, Optional Prefix ID: 9).
+    - IPv4: None.
+- LAN uses 'Track Interface' for IPv6.
 
 
 ## Resources 
