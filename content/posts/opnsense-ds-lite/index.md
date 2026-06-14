@@ -2,6 +2,7 @@
 title: "OPNsense with DS-Lite"
 description: "How to configure OPNsense to work with a DS-Lite connection, including PPPoE setup, GIF tunnel, and IPv6 prefix delegation."
 date: 2026-06-05
+lastmod: 2026-06-14
 draft: false
 categories:
   - tutorial
@@ -186,6 +187,12 @@ If IPv4 returns nothing or the tunnel is not coming up, check:
 - **Port forwarding**: You share a public IPv4 with other customers behind the AFTR. Incoming IPv4 connections are not possible. The solution is to use IPv6 for anything that needs to be reachable from outside, or to tunnel through a VPS — covered in the next article.
 - **VPNs over IPv4 from outside**: Same reason. WireGuard or OpenVPN listening on your public IPv6 address works fine.
 
+## Known Issues
+
+{{< alert icon="triangle-exclamation" cardColor="#8B1A1A" iconColor="#FF6B6B" textColor="#f1faee" >}}
+There is an unresolved bug in OPNsense that can cause intermittent problems with DS-Lite setups: [opnsense/core#7713](https://github.com/opnsense/core/issues/7713). As of OPNsense 26.1.5 the issue is still open. If your IPv4 connectivity through the GIF tunnel drops unexpectedly or behaves inconsistently, this bug may be the cause.
+{{< /alert >}}
+
 ## Resources
 
 - [DS-Lite on 23.7.6+ (OPNsense Forum)](https://forum.opnsense.org/index.php?topic=37813.0)
@@ -194,3 +201,7 @@ If IPv4 returns nothing or the tunnel is not coming up, check:
 - [OPNsense Forum topic 27935](https://forum.opnsense.org/index.php?topic=27935.msg136305#msg136305)
 - [M-Net DS-Lite with pfSense (cybercyber.org)](https://cybercyber.org/m-net-ds-lite-anschluss-mit-pfsense.html)
 - [RFC 6333 — Dual-Stack Lite](https://datatracker.ietf.org/doc/html/rfc6333)
+
+---
+
+*This article was written with the assistance of Claude (Anthropic).*
