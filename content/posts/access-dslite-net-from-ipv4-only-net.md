@@ -1,10 +1,30 @@
---- 
-title: "VPS as VPN hub to conncet IPv6-only WAN from IPv4-only network"
-description: "Access DS Lite network from IPv4-only network using a VPS as VPN bridge"
-categories: ["tutorial", "network", "firewall"]
-tags: ["opnsense", "network", "firewall", "ds-lite", "ipv6"]
+---
+title: "VPS as VPN Hub to Access IPv6-only WAN from IPv4-only Networks"
+description: "Using a VPS as a WireGuard VPN bridge to reach a DS-Lite home network from networks that only have IPv4 connectivity."
 date: 2026-06-09
 draft: true
+authors:
+  - Petar Cubela
+categories:
+  - tutorial
+  - network
+tags:
+  - opnsense
+  - wireguard
+  - vpn
+  - vps
+  - ds-lite
+  - ipv6
+series:
+  - Home Network with IPv6
+showDate: true
+showDateUpdated: true
+showReadingTime: true
+showTableOfContents: true
+showWordCount: true
+showAuthor: true
+showTaxonomies: true
+showPagination: true
 ---
 
 # VPS as VPN hub

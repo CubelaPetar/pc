@@ -1,10 +1,28 @@
---- 
+---
 title: "OPNsense with DS-Lite"
-description: "Setup OPNsense firewall with DS-lite"
-categories: ["tutorial", "network", "firewall"]
-tags: ["opnsense", "network", "firewall", "ds-lite", "ipv6"]
+description: "How to configure OPNsense to work with a DS-Lite connection, including PPPoE passthrough, GIF tunnel setup, and IPv6 prefix delegation."
 date: 2026-06-05
 draft: true
+authors:
+  - Petar Cubela
+categories:
+  - tutorial
+  - network
+tags:
+  - opnsense
+  - firewall
+  - ds-lite
+  - ipv6
+series:
+  - Home Network with IPv6
+showDate: true
+showDateUpdated: true
+showReadingTime: true
+showTableOfContents: true
+showWordCount: true
+showAuthor: true
+showTaxonomies: true
+showPagination: true
 ---
 
 # Setup OPNsense firewall with DS-lite at home

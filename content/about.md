@@ -1,10 +1,18 @@
---- 
+---
 title: "About Me"
 layout: "single"
 description: "Attempt in self-assessment."
-categories: ["thoughts", "life"]
 date: 2026-06-05
-tags: ["me", "physics", "linux"]
+authors:
+  - Petar Cubela
+showDate: false
+showDateUpdated: false
+showReadingTime: false
+showWordCount: false
+showTableOfContents: false
+showAuthor: false
+showTaxonomies: true
+showPagination: false
 ---
 
 # About
