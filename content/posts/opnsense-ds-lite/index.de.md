@@ -26,7 +26,7 @@ showPagination: true
 
 ## Einleitung
 
-Ich habe zuhause eine DS-Lite-Verbindung, bereitgestellt von M-Net. Ich betreibe eine OPNsense-Firewall und musste die beiden zum Laufen bringen. Mein erster Impuls war, den ISP anzurufen und nach einem richtigen Dual-Stack-Setup mit echter öffentlicher IPv4-Adresse zu fragen — hauptsächlich wegen VPN-Zugriffsproblemen aus IPv4-only-Netzwerken. Aber ich entschloss mich, das als Herausforderung anzunehmen: IPv6 umarmen, mit den Einschränkungen von DS-Lite umgehen und Lösungen für die verbleibenden Lücken finden. Es gibt einen Folgeartikel darüber, wie man aus einem IPv4-only-Netzwerk auf ein DS-Lite-Heimnetzwerk zugreift, indem man einen VPS als WireGuard-Hub verwendet.
+Ich habe zuhause eine DS-Lite-Verbindung, bereitgestellt von M-Net. Ich betreibe eine OPNsense-Firewall und musste die beiden zum Laufen bringen. Mein erster Gedanke war, meinen Internetanbieter (ISP) anzurufen und nach einem richtigen Dual-Stack-Setup mit echter öffentlicher IPv4-Adresse zu fragen — hauptsächlich wegen VPN-Zugriffsproblemen aus IPv4-only-Netzwerken. Aber ich entschloss mich, das als Herausforderung anzunehmen: ich mag IPv6, weshalb ich lernen wollte mit den Einschränkungen von DS-Lite umzugehen und Lösungen für die verbleibenden Probleme finden. Es wird einen Folgeartikel darüber geben, wie man aus einem IPv4-only-Netzwerk auf ein DS-Lite-Heimnetzwerk zugreift, indem man einen VPS als WireGuard-Hub verwendet.
 
 OPNsense unterstützt DS-Lite, aber es erfordert eine spezifische Konfiguration und es gibt einige nicht-offensichtliche Stolperfallen. Dieser Artikel führt durch die vollständige Konfiguration.
 
