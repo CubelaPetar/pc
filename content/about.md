@@ -9,12 +9,10 @@ showReadingTime: false
 showWordCount: false
 showTableOfContents: false
 showAuthor: false
-showTaxonomies: true
+showTaxonomies: false
 showPagination: false
 ---
 
-
-## intro
 
 ```bash 
 $ whoami
@@ -25,17 +23,15 @@ So many people have done this already but I think this is a great idea to introd
 
 This is my homepage. Thanks for stopping by.
 
-I am a System Administrator, a Linux enthusiast, with a love for complex network infrastructures, a Physicist by degree, and I am trying my best to become better at writing texts. I love poetry, lyricism and classical books and musics. 
+I am a System Administrator, a Linux enthusiast, with a love for complex network infrastructures, a Physicist by degree, and I am trying my best to become better at writing texts. I love poetry, lyricism and classical books and music.
 
-You will find here, presumably, technical blog articles about self-hosting, open source software, network topics, administration of Linux systems, maybe a bit physics, and just texts about my own thoughts. 
+You will find here, presumably, technical blog articles about self-hosting, open source software, network topics, administration of Linux systems, maybe a bit physics, and just texts about my own thoughts.
 
-I will write texts in German and English. Some in both languages, some only exclusively in one.
+I will write texts in German and English. Some in both languages, some in only one.
 
 ## history
 
-After finishing school I developed a deep interest for science and physics; especially theoretical physics. Thus, I decided I wanted to study physics which I did at the LMU in Munich, Germany. 
-
-...
+After finishing school I developed a deep interest for science and physics; especially theoretical physics. Thus, I decided I wanted to study physics which I did at the LMU in Munich, Germany.
 
 Linux is great to procrastinate while you should be working on your masters thesis. :-)
 
