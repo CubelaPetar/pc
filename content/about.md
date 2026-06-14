@@ -15,7 +15,6 @@ showTaxonomies: true
 showPagination: false
 ---
 
-# About
 
 ## intro
 
