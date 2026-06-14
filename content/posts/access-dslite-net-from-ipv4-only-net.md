@@ -3,8 +3,6 @@ title: "VPS as VPN Hub to Access IPv6-only WAN from IPv4-only Networks"
 description: "Using a VPS as a WireGuard VPN bridge to reach a DS-Lite home network from networks that only have IPv4 connectivity."
 date: 2026-06-09
 draft: true
-authors:
-  - Petar Cubela
 categories:
   - tutorial
   - network

@@ -3,8 +3,6 @@ title: "About Me"
 layout: "single"
 description: "Attempt in self-assessment."
 date: 2026-06-05
-authors:
-  - Petar Cubela
 showDate: false
 showDateUpdated: false
 showReadingTime: false
