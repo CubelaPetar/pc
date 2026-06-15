@@ -26,7 +26,7 @@ showPagination: true
 
 ## Introduction
 
-I have a DS-Lite connection at home, provided by M-Net. I run an OPNsense firewall and needed the two to work together. My first instinct was to call the ISP and ask for a proper dual-stack setup with a real public IPv4 address, mainly because of VPN access problems from IPv4-only networks. But I decided to take that as a challenge instead: embrace IPv6, deal with the constraints of DS-Lite, and find solutions around the remaining gaps. There is a follow-up article on how to access a DS-Lite home network from an IPv4-only network using a VPS as a WireGuard hub.
+I have a DS-Lite connection at home, provided by M-Net. I run an OPNsense firewall and needed the two to work together. My first instinct was to call the ISP and ask for a proper dual-stack setup with a real public IPv4 address, mainly because of VPN access problems from IPv4-only networks. But I decided to take that as a challenge instead — just try to use IPv6 and work around the issues. I have to admit I am a fan of IPv6; I think it is great to not have to deal with NAT and DHCPv4, and Router Advertisements feel simpler. There is a follow-up article on how to access a DS-Lite home network from an IPv4-only network using a VPS as a WireGuard hub.
 
 OPNsense does support DS-Lite, but it takes a specific setup and there are a few non-obvious gotchas. This article walks through the full configuration.
 
