@@ -74,7 +74,12 @@
   pageRef = "categories"
   weight = 20
 
-#[[footer]]
-#  name = "Datenschutz"
-#  pageRef = "privacy"
-#  weight = 30
+[[footer]]
+  name = "Datenschutz"
+  pageRef = "privacy"
+  weight = 30
+
+[[footer]]
+  name = "Impressum"
+  pageRef = "impressum"
+  weight = 40
