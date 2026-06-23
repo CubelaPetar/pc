@@ -26,7 +26,7 @@ showPagination: true
 
 ## Einleitung
 
-Ich habe zuhause eine DS-Lite-Verbindung, bereitgestellt von M-Net. Ich betreibe eine OPNsense-Firewall und musste die beiden zum Laufen bringen. Mein erster Gedanke war, meinen Internetanbieter (ISP) anzurufen und nach einem richtigen Dual-Stack-Setup mit echter öffentlicher IPv4-Adresse zu fragen — hauptsächlich wegen VPN-Zugriffsproblemen aus IPv4-only-Netzwerken. Aber ich entschloss mich, das als Herausforderung anzunehmen: ich mag IPv6, weshalb ich lernen wollte mit den Einschränkungen von DS-Lite umzugehen und Lösungen für die verbleibenden Probleme finden. Es wird einen Folgeartikel darüber geben, wie man aus einem IPv4-only-Netzwerk auf ein DS-Lite-Heimnetzwerk zugreift, indem man einen VPS als WireGuard-Hub verwendet.
+Ich habe zuhause eine DS-Lite-Verbindung, bereitgestellt von M-Net. Ich betreibe eine OPNsense-Firewall und musste die beiden zum Laufen bringen. Mein erster Gedanke war, meinen Internetanbieter (ISP) anzurufen und nach einem richtigen Dual-Stack-Setup mit echter öffentlicher IPv4-Adresse zu fragen — hauptsächlich wegen VPN-Zugriffsproblemen aus IPv4-only-Netzwerken. Aber ich entschloss mich, das als Herausforderung anzunehmen: ich mag IPv6, weshalb ich lernen wollte mit den Einschränkungen von DS-Lite umzugehen und Lösungen für die verbleibenden Probleme finden. Es gibt einen Folgeartikel darüber, [wie man aus einem IPv4-only-Netzwerk auf ein DS-Lite-Heimnetzwerk zugreift, indem man einen VPS als WireGuard-Hub verwendet](posts/access-dslite-net-from-ipv4-only-nets/index.md).
 
 OPNsense unterstützt DS-Lite, aber es erfordert eine spezifische Konfiguration und es gibt einige nicht-offensichtliche Stolperfallen. Dieser Artikel führt durch die vollständige Konfiguration.
 
@@ -41,7 +41,7 @@ DS-Lite (Dual-Stack Lite, [RFC 6333](https://datatracker.ietf.org/doc/html/rfc63
 - Man bekommt ein **öffentliches, routbares IPv6-Prefix** (in meinem Fall ein /56 von M-Net, delegiert via DHCPv6).
 - Man bekommt **keine öffentliche IPv4-Adresse**. Stattdessen wird der IPv4-Verkehr durch die IPv6-Verbindung zu einem Gerät namens **AFTR** (Address Family Transition Router) beim ISP getunnelt. Der AFTR NATet dann den Verkehr aller Kunden hinter gemeinsamen öffentlichen IPv4-Adressen (CGNAT, [RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598)).
 
-Der Tunnel zwischen dem eigenen Router und dem AFTR ist ein **GIF**-Tunnel (Generic IPv6-over-IPv6 Tunnel, genauer gesagt IPv4-in-IPv6). Innerhalb des Tunnels verwenden beide Endpunkte Adressen aus dem reservierten `192.0.0.0/29`-Block ([RFC 6333 §10](https://datatracker.ietf.org/doc/html/rfc6333#section-10)):
+Der Tunnel zwischen dem eigenen Router und dem AFTR ist ein **GIF**-Tunnel (Generic tunnel Interface) — er transportiert IPv4-Traffic eingebettet in IPv6-Pakete. Innerhalb des Tunnels verwenden beide Endpunkte Adressen aus dem reservierten `192.0.0.0/29`-Block ([RFC 6333 §10](https://datatracker.ietf.org/doc/html/rfc6333#section-10)):
 
 | Adresse | Rolle |
 |---|---|
@@ -79,7 +79,7 @@ Alle anderen Felder auf den Standardwerten lassen. Speichern und übernehmen.
 
 ![PPPoE-Gerätekonfiguration in OPNsense](pppoe-device.png)
 
-Ein neues Gerät `pppoe1` (oder `pppoe0`, wenn es das erste ist) erscheint in der Geräteliste.
+Ein neues Gerät `pppoe0` (oder `pppoe1`, wenn bereits eines existiert) erscheint in der Geräteliste.
 
 ## Schritt 3: WAN-Interface zuweisen und konfigurieren
 
@@ -101,7 +101,7 @@ Unter **DHCPv6 client configuration** folgendes einstellen:
 | Send prefix hint | ✓ aktiviert |
 | Optional Prefix ID | `9` |
 
-Die Prefix ID bestimmt, welches Sub-Prefix des delegierten /56 das WAN-Interface selbst für seine IPv6-Adresse verwendet. Der Wert `9` reserviert ein /64 für das WAN und lässt den Rest für LAN und VLANs frei — das bedeutet auch, dass das WAN-Interface eine routbare Global Unicast Address (GUA) erhält, was für den GIF-Tunnel in Schritt 5 wichtig ist.
+Die Prefix ID bestimmt, welches Sub-Prefix des delegierten /56 das WAN-Interface selbst für seine IPv6-Adresse verwendet. Der konkrete Wert spielt keine Rolle, solange er sich von den Prefix IDs der LAN- und VLAN-Interfaces unterscheidet — der Wert `9` reserviert ein /64 für das WAN und lässt die IDs 0–8 für LAN und VLANs frei. Das entscheidende Ergebnis ist, dass das WAN-Interface eine routbare Global Unicast Address (GUA) erhält, die für den GIF-Tunnel in Schritt 5 erforderlich ist.
 
 Speichern und übernehmen. OPNsense stellt nun die PPPoE-Verbindung her und fordert ein IPv6 /56-Prefix von M-Net an.
 

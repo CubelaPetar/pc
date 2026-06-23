@@ -26,7 +26,7 @@ showPagination: true
 
 ## Introduction
 
-I have a DS-Lite connection at home, provided by M-Net. I run an OPNsense firewall and needed the two to work together. My first instinct was to call the ISP and ask for a proper dual-stack setup with a real public IPv4 address, mainly because of VPN access problems from IPv4-only networks. But I decided to take that as a challenge instead — just try to use IPv6 and work around the issues. I have to admit I am a fan of IPv6; I think it is great to not have to deal with NAT and DHCPv4, and SLAAC feels much simpler. There is a follow-up article on how to access a DS-Lite home network from an IPv4-only network using a VPS as a WireGuard hub.
+I have a DS-Lite connection at home, provided by M-Net. I run an OPNsense firewall and needed the two to work together. My first instinct was to call the ISP and ask for a proper dual-stack setup with a real public IPv4 address, mainly because of VPN access problems from IPv4-only networks. But I decided to take that as a challenge instead — just try to use IPv6 and work around the issues. I have to admit I am a fan of IPv6; I think it is great to not have to deal with NAT and DHCPv4, and SLAAC feels much simpler. There is a follow-up article on [how to access a DS-Lite home network from an IPv4-only network using a VPS as a WireGuard hub](posts/access-dslite-net-from-ipv4-only-nets/index.md).
 
 OPNsense does support DS-Lite, but it takes a specific setup and there are a few non-obvious gotchas. This article walks through the full configuration.
 
@@ -41,7 +41,7 @@ DS-Lite (Dual-Stack Lite, [RFC 6333](https://datatracker.ietf.org/doc/html/rfc63
 - You get a **public, routable IPv6 prefix** (in my case a /56 from M-Net, delegated via DHCPv6).
 - You get **no public IPv4 address**. Instead, your IPv4 traffic is tunnelled through the IPv6 connection to a device called the **AFTR** (Address Family Transition Router) at the ISP. The AFTR then NATes all customers' traffic behind shared public IPv4 addresses (CGNAT, [RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598)).
 
-The tunnel between your router and the AFTR is a **GIF** (Generic IPv6-over-IPv6 tunnel, or more precisely IPv4-in-IPv6). Inside the tunnel, both endpoints use addresses from the reserved `192.0.0.0/29` block ([RFC 6333 §10](https://datatracker.ietf.org/doc/html/rfc6333#section-10)):
+The tunnel between your router and the AFTR is a **GIF** tunnel (Generic tunnel Interface) — it carries your IPv4 traffic encapsulated inside IPv6 packets. Inside the tunnel, both endpoints use addresses from the reserved `192.0.0.0/29` block ([RFC 6333 §10](https://datatracker.ietf.org/doc/html/rfc6333#section-10)):
 
 | Address | Role |
 |---|---|
@@ -79,7 +79,7 @@ Leave all other fields at their defaults. Save and apply.
 
 ![PPPoE device configuration in OPNsense](pppoe-device.png)
 
-A new device `pppoe1` (or `pppoe0` if this is the first) will appear in the device list.
+A new device `pppoe0` (or `pppoe1` if one already exists) will appear in the device list.
 
 ## Step 3: Assign and Configure the WAN Interface
 
@@ -101,7 +101,7 @@ Under **DHCPv6 client configuration**, set:
 | Send prefix hint | ✓ enabled |
 | Optional Prefix ID | `9` |
 
-The Prefix ID determines which sub-prefix of the delegated /56 the WAN interface itself uses for its own IPv6 address. Setting it to `9` reserves one /64 for the WAN and leaves the rest for LAN and VLANs — this also means the WAN interface gets a routable Global Unicast Address (GUA), which matters for the GIF tunnel in Step 5.
+The Prefix ID determines which sub-prefix of the delegated /56 the WAN interface itself uses for its own IPv6 address. The specific value does not matter as long as it is distinct from your LAN and VLAN prefix IDs — setting it to `9` reserves one /64 for the WAN and leaves IDs 0–8 available for LAN and VLANs. The important outcome is that the WAN interface gets a routable Global Unicast Address (GUA), which is required for the GIF tunnel in Step 5.
 
 Save and apply. OPNsense will now establish the PPPoE connection and request an IPv6 /56 prefix from M-Net.
 
