@@ -28,14 +28,15 @@ showPagination: true
 
 ## Einleitung
 
-Ich schreibe diesen Artikel sitzend im einem Zug nach Zürich und nutze das öffentliche WLAN des Zuges, welches ein reines IPv4-Netzwerk ist. Und dennoch kann ich alle meine Heimdienste per VPN erreichen, obwohl mein Heimnetzwerk hinter einer DS-Lite-Verbindung steckt und daher nur eine (dynamische) öffentliche IPv6-Adresse auf der WAN-Seite hat und keine öffentliche IPv4. Wie man OPNsense mit einer DS-Lite-Verbindung einrichtet, erkläre ich in einem [anderen Artikel](posts/opnsense-ds-lite/index.md).
+Ich schreibe das gerade in einem Zug nach Zürich, im WLAN des Zuges — einem reinen IPv4-Netz. Und trotzdem erreiche ich alle meine Heimdienste per VPN, obwohl mein Heimnetzwerk hinter einer DS-Lite-Verbindung steckt und keine öffentliche IPv4 hat. Wie man OPNsense damit einrichtet, beschreibe ich in einem [anderen Artikel](posts/opnsense-ds-lite/index.md).
 
-Hier besprechen wir, wie man einen VPS mit Dual-Stack (öffentlich erreichbare, statische IP-Adressen) als VPN-Hub nutzt, um aus einem beliebigen IPv4-only-Netzwerk auf ein CGNAT-Netzwerk zuzugreifen; was auf unsere DS-Lite-Verbindung zutrifft. Dieses Problem musste ich lösen, um meine Heimdienste (wie meinen selbst gehosteten LLM-Server) auch im Büro nutzen zu können — wie das bei einem MSP so üblich ist, haben wir im Büro nur ein IPv4-only-Netzwerk. Ich habe dieses Problem mit Claude besprochen, der vorschlug, einen Site-to-Site-Tunnel zwischen meinem Heimnetzwerk und einem VPS über ihre IPv6-Verbindungen mit WireGuard aufzubauen. Und dann einfach aus einem beliebigen IPv4-Netzwerk mit der öffentlichen IPv4-Adresse des VPS zu verbinden, was den Zugriff auf alle Dienste hinter dem CGNAT-Netzwerk ermöglicht.
+Die Lösung: ein VPS mit Dual-Stack als WireGuard-Hub. Mein Heimrouter verbindet sich über IPv6 mit dem VPS, ich verbinde mich von überall über die öffentliche IPv4 des VPS. Gebraucht habe ich das hauptsächlich für die Arbeit — bei uns im Büro gibt es nur IPv4, und ich wollte Zugriff auf meinen selbst gehosteten LLM-Server zu Hause. Ich habe das Problem mit Claude besprochen, der einen Site-to-Site-WireGuard-Tunnel zwischen Heimnetz und VPS über IPv6 vorschlug — Road Warriors verbinden sich dann über IPv4 mit dem VPS.
 
 ## Überblick
 
-Ich habe ein Dual-Stack-VPN-Netzwerk eingerichtet, mit dem ich alle meine ULA-Heimadressen aus einem IPv4-only-Netzwerk heraus erreichen kann. (Ich habe einige VLANs, die ausschließlich IPv6-Adressen haben.) Das ist großartig und funktioniert dank der Einfachheit von WireGuard seitdem problemlos.
-Hier ist ein Schema des Dual-Stack-VPN-Netzwerks mit dem VPS als zentralem Server:
+Das Ergebnis: Ich erreiche jede Heimadresse aus einem IPv4-only-Netz — auch VLANs, die nur IPv6 haben. Es läuft seit der Einrichtung stabil.
+
+Der VPS ist der Hub:
 
 ```
 [Heimnetz 10.56.0.0/20 + fde4:ed21:b2c0:5600::/56]     [Road Warrior]
@@ -79,7 +80,7 @@ Alle folgenden Befehle werden als `root`-Benutzer ausgeführt.
 
 ### 1.1 Schlüssel generieren
 
-Wie bei WireGuard üblich, müssen wir einen privaten Schlüssel und einen öffentlichen Schlüssel erstellen. Dafür verwenden wir das mitgelieferte `wg`-Tool und legen sie im Standard-WireGuard-Verzeichnis ab. Der private Schlüssel benötigt die korrekten Berechtigungen.
+Das Schlüsselpaar mit `wg` generieren und im Standard-WireGuard-Verzeichnis ablegen. Der private Schlüssel braucht eingeschränkte Berechtigungen.
 ```bash
 wg genkey | tee /etc/wireguard/vps_private.key | wg pubkey > /etc/wireguard/vps_public.key
 chmod 600 /etc/wireguard/vps_private.key
@@ -87,7 +88,7 @@ chmod 600 /etc/wireguard/vps_private.key
 
 ### 1.2 IP-Weiterleitung aktivieren
 
-IP-Weiterleitung auf dem Server aktivieren. Dies ist notwendig, da der VPS Pakete zwischen dem Tunnel und dem Internet weiterleiten muss.
+Da der VPS Pakete zwischen dem Tunnel und dem Internet weiterleiten muss, IP-Weiterleitung aktivieren:
 
 ```bash
 cat >> /etc/sysctl.conf << 'EOF'
@@ -150,14 +151,14 @@ wg show   # Interface und Peers überprüfen
 
 ### 1.5 UFW-Firewall
 
-Eine lokale Firewall auf dem VPS sollte verwendet werden. Ich nutze `ufw` auf meinem Server. Zunächst den WireGuard-Port freischalten:
+Ich nutze `ufw` auf meinem VPS. Zunächst den WireGuard-Port freischalten:
 ```bash
 ufw allow 51822/udp comment "WireGuard"
 ```
 
 Falls UFW noch nicht aktiv ist, sicherstellen, dass Port 22/TCP erlaubt ist, bevor `ufw enable` ausgeführt wird — sonst sperrt man sich aus der SSH-Verbindung aus.
 
-Als nächstes muss die Paketweiterleitung auch von UFW erlaubt werden. `/etc/default/ufw` bearbeiten und die Forward-Policy ändern:
+Außerdem muss UFW die Paketweiterleitung erlauben. `/etc/default/ufw` bearbeiten und die Forward-Policy ändern:
 ```
 DEFAULT_FORWARD_POLICY="ACCEPT"
 ```
@@ -222,7 +223,7 @@ Alle Schritte werden in der OPNsense-Weboberfläche durchgeführt.
 |Disable Gateway Monitoring|✅|
 |Description|`WireGuard VPS Tunnel IPv4 Gateway`|
 
-> **Wichtig:** OPNsense erstellt für WireGuard-Interfaces nicht automatisch eine Connected-Route, so wie Linux das nativ tut. Das Gateway-Objekt muss manuell angelegt werden.
+> OPNsense erstellt für WireGuard-Interfaces nicht automatisch eine Connected-Route (anders als Linux). Das Gateway-Objekt muss man manuell anlegen.
 
 ![OPNsense IPv4-Gateway für den WireGuard-VPS-Tunnel](opnsense-gw-ipv4.png)
 
@@ -255,7 +256,7 @@ Alle Schritte werden in der OPNsense-Weboberfläche durchgeführt.
 
 ![OPNsense IPv6-Gateway für den WireGuard-VPS-Tunnel](opnsense-gw-ipv6.png)
 
-### 2.7 IPv6-Statische Route hinzufügen
+### 2.7 IPv6-statische Route hinzufügen
 
 **System → Routes → Configuration → Add**
 
