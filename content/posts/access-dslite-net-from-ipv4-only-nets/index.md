@@ -28,13 +28,15 @@ showPagination: true
 
 ## Introduction
 
-I'm writing this article while sitting on a train to Zurich and using the train's public Wi-Fi which is an IPv4-only network. And I am still able to reach all my home services via VPN which are behind a DS-Lite connection, thus having only a (dynamic) IPv6 address on the WAN side and no public IPv4 address. See my other article to learn how to setup an [OPNsense firewall with a DS-Lite connection](posts/opnsense-ds-lite/index.md).
-Here we discuss how to use a VPS with a dual stack setup of publicly reachable (static) IP addresses as a VPN hub to reach a CGNAT'ed network from any IPv4-only network. I needed to solve this problem in order to reach my home services (such as my self-hosted LLM server) when being at work - as I work for an MSP we have only an IPv4-only network in our office. To be honest I discussed this issue with Claude which suggested to setup a site-to-site tunnel between my home network and a VPS between their IPv6 connections using WireGuard. And then to simply connect to the VPS's public IPv4 address from any IPv4 network which enables us to reach any service behind the CGNAT'ed network.
+I'm writing this while on a train to Zurich, on the train's public Wi-Fi — IPv4-only. And I'm still connected to all my home services via VPN, even though my home sits behind a DS-Lite connection with no public IPv4. My other article covers [setting up OPNsense with DS-Lite](posts/opnsense-ds-lite/index.md).
+
+The solution: a VPS with dual-stack public IPs acting as a WireGuard hub. My home router connects to the VPS over IPv6, and I connect from anywhere using the VPS's public IPv4. I needed this mainly for work — our office network is IPv4-only and I wanted access to my self-hosted LLM server at home. I discussed it with Claude, which suggested a site-to-site WireGuard tunnel between home and VPS over IPv6, with road warriors connecting to the VPS over IPv4.
 
 ## Overview
 
-I set up a dual-stack VPN network such that I can reach any of my home ULA addresses while being connected to an IPv4-only network. (I have some VLANs which only have IPv6 addresses.) That's so amazing and works flawlessly since I set it up due to WireGuard's simplicity.
-Here is a schematic of the dual stack VPN network where the VPS is the central server:
+The result: I can reach any home address from an IPv4-only network — including VLANs that are IPv6-only. It's been solid since I set it up.
+
+The VPS is the hub:
 
 ```
 [Home LAN 10.56.0.0/20 + fde4:ed21:b2c0:5600::/56]     [Road Warrior]
@@ -52,7 +54,7 @@ Here is a schematic of the dual stack VPN network where the VPS is the central s
 
 ---
 
-## Network Plan
+## Network plan
 
 |Role|Device|WireGuard IPv4|WireGuard IPv6 (ULA)|Public Endpoint|
 |---|---|---|---|---|
@@ -68,7 +70,7 @@ Here is a schematic of the dual stack VPN network where the VPS is the central s
 
 ---
 
-## Part 1 — VPS Setup
+## Part 1 — VPS setup
 
 
 {{< alert icon="circle-info" >}}
@@ -76,17 +78,17 @@ All the commands in the following are executed as the `root` user.
 {{< /alert >}}
 
 
-### 1.1 Generate Keys
+### 1.1 Generate keys
 
-As usual for WireGuard we need to create a private key and a public key. We can use the included `wg` utility for that and place them in the default WireGuard directory. The private key needs to have the correct permissions.
+Generate a keypair using `wg` and store both files in the default WireGuard directory. The private key needs restricted permissions.
 ```bash
 wg genkey | tee /etc/wireguard/vps_private.key | wg pubkey > /etc/wireguard/vps_public.key
 chmod 600 /etc/wireguard/vps_private.key
 ```
 
-### 1.2 Enable IP Forwarding
+### 1.2 Enable IP forwarding
 
-Enable IP forwarding on the server. This is required because the VPS needs to forward packets between the tunnel and the internet.
+The VPS needs to forward packets between the tunnel and the internet, so IP forwarding must be enabled.
 
 ```bash
 cat >> /etc/sysctl.conf << 'EOF'
@@ -96,7 +98,7 @@ EOF
 sysctl -p
 ```
 
-### 1.3 WireGuard Config `/etc/wireguard/wg0.conf`
+### 1.3 WireGuard config `/etc/wireguard/wg0.conf`
 
 The `PostUp` hooks run after the interface comes up and do two things: open the kernel firewall to allow forwarded traffic (`FORWARD` rules), and enable NAT for outbound IPv4 via the physical interface (`MASQUERADE` on `eth0`). The `PreDown` hooks undo this cleanly before the interface goes down. Both the `FORWARD` rules and the sysctl settings from §1.2 are required: sysctl enables IP forwarding at the kernel level, but the firewall (`ufw` sets the forward policy to `DROP` by default) still blocks forwarded packets until the `FORWARD` chain is explicitly opened.
 
@@ -139,7 +141,7 @@ AllowedIPs = 10.0.0.3/32, fde4:ed21:b2c0:56dd::3/128
 
 Notice that OPNsense appears here as just another WireGuard peer. What makes this a site-to-site tunnel — rather than a plain client VPN — is the `AllowedIPs` for the OPNsense peer: by including the full home LAN subnets (`10.56.0.0/20` and `fde4:ed21:b2c0:5600::/56`), the VPS builds routing table entries for those entire prefixes pointing at OPNsense. In WireGuard, `AllowedIPs` acts as both a route and an ACL: packets destined for those subnets are sent to OPNsense, and only packets sourced from those subnets are accepted from OPNsense.
 
-### 1.4 Enable and Start
+### 1.4 Enable and start
 
 Enable the tunnel:
 ```bash
@@ -147,9 +149,9 @@ systemctl enable --now wg-quick@wg0
 wg show   # verify interface and peers
 ```
 
-### 1.5 UFW Firewall
+### 1.5 UFW firewall
 
-You should be using a local firewall on your VPS. I am using `ufw` on my server. First, allow the WireGuard port:
+I use `ufw` on my VPS. First, allow the WireGuard port:
 ```bash
 ufw allow 51822/udp comment "WireGuard"
 ```
@@ -168,11 +170,11 @@ ufw reload
 
 ---
 
-## Part 2 — OPNsense (Home Gateway)
+## Part 2 — OPNsense (home gateway)
 
 All steps are performed in the OPNsense web UI.
 
-### 2.1 Create WireGuard Instance
+### 2.1 Create WireGuard instance
 
 **VPN → WireGuard → Instances → Add**
 
@@ -185,7 +187,7 @@ All steps are performed in the OPNsense web UI.
 
 ![OPNsense WireGuard instance configuration](opnsense-wg-instance.png)
 
-### 2.2 Add VPS as a Peer
+### 2.2 Add VPS as a peer
 
 **VPN → WireGuard → Peers → Add**
 
@@ -204,11 +206,11 @@ All steps are performed in the OPNsense web UI.
 
 ![OPNsense WireGuard peer configuration for the VPS hub](opnsense-wg-peer.png)
 
-### 2.3 Assign the WireGuard Interface
+### 2.3 Assign the WireGuard interface
 
 **Interfaces → Assignments** → assign the new `wg` interface, enable it.
 
-### 2.4 Add Gateway
+### 2.4 Add gateway
 
 **System → Gateways → Configuration → Add**
 
@@ -221,11 +223,11 @@ All steps are performed in the OPNsense web UI.
 |Disable Gateway Monitoring|✅|
 |Description|`WireGuard VPS tunnel IPv4 gateway`|
 
-> **Important:** OPNsense does not automatically create a connected route for WireGuard interfaces the way Linux does natively. The gateway object must be created manually.
+> OPNsense does not automatically create a connected route for WireGuard interfaces (unlike Linux). You must add the gateway object manually.
 
 ![OPNsense IPv4 gateway for the WireGuard VPS tunnel](opnsense-gw-ipv4.png)
 
-### 2.5 Add Static Route
+### 2.5 Add static route
 
 **System → Routes → Configuration → Add**
 
@@ -239,7 +241,7 @@ All steps are performed in the OPNsense web UI.
 
 ![OPNsense IPv4 static route for the WireGuard tunnel subnet](opnsense-route-ipv4.png)
 
-### 2.6 Add IPv6 Gateway
+### 2.6 Add IPv6 gateway
 
 **System → Gateways → Configuration → Add**
 
@@ -254,7 +256,7 @@ All steps are performed in the OPNsense web UI.
 
 ![OPNsense IPv6 gateway for the WireGuard VPS tunnel](opnsense-gw-ipv6.png)
 
-### 2.7 Add IPv6 Static Route
+### 2.7 Add IPv6 static route
 
 **System → Routes → Configuration → Add**
 
@@ -266,7 +268,7 @@ All steps are performed in the OPNsense web UI.
 
 ![OPNsense IPv6 static route for the WireGuard tunnel subnet](opnsense-route-ipv6.png)
 
-### 2.8 Firewall Rules
+### 2.8 Firewall rules
 
 **Firewall → Rules → [wgvpstunnel interface] → Add** (IPv4 — allow tunnel subnet)
 
@@ -308,9 +310,9 @@ OPNsense blocks all traffic on new interfaces by default, so even with the tunne
 
 ---
 
-## Part 3 — Road Warrior / Client
+## Part 3 — Road warrior / client
 
-### 3.1 Generate Keys
+### 3.1 Generate keys
 
 **Linux/macOS:**
 
@@ -320,7 +322,7 @@ wg genkey | tee client_private.key | wg pubkey > client_public.key
 
 **Windows:** Use the official WireGuard GUI — it generates the keypair automatically.
 
-### 3.2 WireGuard Config `client.conf`
+### 3.2 WireGuard config `client.conf`
 
 ```ini
 [Interface]
@@ -341,7 +343,7 @@ PersistentKeepalive = 25
 
 `fde4:ed21:b2c0:56dd::/64` falls within `fde4:ed21:b2c0:5600::/56` — the `/56` covers `5600::` through `56ff::`, so `56dd` is already included. You could drop the `/64` entry and the `/56` alone would cover it, but listing both makes the intent explicit: `56dd::/64` is the VPN tunnel subnet, `5600::/56` is the home LAN ULA block. WireGuard resolves the overlap via longest-prefix matching.
 
-### 3.3 Add Client Peer to VPS
+### 3.3 Add client peer to VPS
 
 Once you have the client's public key, add it to the VPS:
 
@@ -381,7 +383,7 @@ ping 10.0.0.3
 ping6 fde4:ed21:b2c0:56dd::3
 ```
 
-### From Road Warrior / Client
+### From road warrior / client
 
 ```bash
 # Ping VPS tunnel IPs
