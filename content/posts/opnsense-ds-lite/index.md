@@ -101,7 +101,7 @@ Under **DHCPv6 client configuration**, set:
 | Send prefix hint | ✓ enabled |
 | Optional Prefix ID | `9` |
 
-The Prefix ID determines which sub-prefix of the delegated /56 the WAN interface itself uses for its own IPv6 address. The specific value does not matter as long as it is distinct from your LAN and VLAN prefix IDs — setting it to `9` reserves one /64 for the WAN and leaves IDs 0–8 available for LAN and VLANs. The important outcome is that the WAN interface gets a routable Global Unicast Address (GUA), which is required for the GIF tunnel in Step 5.
+The Prefix ID determines which /64 sub-prefix of the delegated /56 the WAN interface uses for its own IPv6 address. The exact value does not matter as long as it is distinct from your LAN and VLAN prefix IDs — setting it to `9` reserves one /64 for WAN and leaves IDs 0–8 for LAN and VLANs. The result is a WAN interface with a routable Global Unicast Address (GUA), which the GIF tunnel in Step 5 needs.
 
 Save and apply. OPNsense will now establish the PPPoE connection and request an IPv6 /56 prefix from M-Net.
 
@@ -142,7 +142,7 @@ Add a new entry:
 | Description | `AFTR_MNET` |
 
 **Which interface to use as local address?**
-The GIF tunnel needs a **Global Unicast Address (GUA)** as its IPv6 source — a link-local address is not routable and will not reach the AFTR. Because we set a Prefix ID (`9`) on the WAN DHCPv6 client in Step 3, the WAN interface itself gets a GUA from the delegated /56 and works fine here. Any other interface with a GUA (LAN, a VLAN) also works.
+The GIF tunnel needs a **Global Unicast Address (GUA)** as its IPv6 source (a link-local address is not routable and won't reach the AFTR). Because we set a Prefix ID (`9`) on the WAN DHCPv6 client in Step 3, the WAN interface gets a GUA from the delegated /56 and works fine here. Any other interface with a GUA (LAN, a VLAN) also works.
 
 ![GIF tunnel configuration pointing to M-Net's AFTR](gif-tunnel.png)
 
@@ -169,7 +169,7 @@ The auto-created gateway will have the WANv4 interface assigned, an empty IP Add
 
 ![Auto-created gateway for the WANv4/GIF tunnel interface](gateway.png)
 
-## Verifying the Setup
+## Verifying the setup
 
 From a host on the LAN, you should now have both IPv4 and IPv6 connectivity:
 
@@ -182,9 +182,9 @@ If IPv4 returns nothing or the tunnel is not coming up, check:
 2. That the AFTR address is correct — resolve `aftr.prod.m-online.net` and compare with `2001:a60:0:2::ffff`
 3. That the GIF local address interface has a GUA (e.g. WAN with Prefix ID set, or LAN)
 
-## What Does Not Work
+## What does not work
 
-- **Port forwarding**: You share a public IPv4 with other customers behind the AFTR. Incoming IPv4 connections are not possible. The solution is to use IPv6 for anything that needs to be reachable from outside, or to tunnel through a VPS — covered in the next article.
+- **Port forwarding**: You share a public IPv4 with other customers behind the AFTR. Incoming IPv4 connections are not possible. The solution is to use IPv6 for anything that needs to be reachable from outside, or to tunnel through a VPS (covered in the next article).
 - **VPNs over IPv4 from outside**: Same reason. WireGuard or OpenVPN listening on your public IPv6 address works fine.
 
 ## Known Issues
