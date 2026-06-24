@@ -101,7 +101,7 @@ Unter **DHCPv6 client configuration** folgendes einstellen:
 | Send prefix hint | ✓ aktiviert |
 | Optional Prefix ID | `9` |
 
-Die Prefix ID bestimmt, welches Sub-Prefix des delegierten /56 das WAN-Interface selbst für seine IPv6-Adresse verwendet. Der konkrete Wert spielt keine Rolle, solange er sich von den Prefix IDs der LAN- und VLAN-Interfaces unterscheidet — der Wert `9` reserviert ein /64 für das WAN und lässt die IDs 0–8 für LAN und VLANs frei. Das entscheidende Ergebnis ist, dass das WAN-Interface eine routbare Global Unicast Address (GUA) erhält, die für den GIF-Tunnel in Schritt 5 erforderlich ist.
+Die Prefix ID bestimmt, welches /64-Sub-Prefix des delegierten /56 das WAN-Interface für seine IPv6-Adresse verwendet. Der konkrete Wert spielt keine Rolle, solange er sich von den Prefix IDs der LAN- und VLAN-Interfaces unterscheidet — der Wert `9` reserviert ein /64 für das WAN und lässt die IDs 0–8 für LAN und VLANs frei. Das Ergebnis ist ein WAN-Interface mit einer routbaren Global Unicast Address (GUA), die der GIF-Tunnel in Schritt 5 braucht.
 
 Speichern und übernehmen. OPNsense stellt nun die PPPoE-Verbindung her und fordert ein IPv6 /56-Prefix von M-Net an.
 
@@ -142,7 +142,7 @@ Neuen Eintrag hinzufügen:
 | Description | `AFTR_MNET` |
 
 **Welches Interface als lokale Adresse verwenden?**
-Der GIF-Tunnel benötigt eine **Global Unicast Address (GUA)** als IPv6-Quelle — eine Link-Local-Adresse ist nicht routbar und erreicht den AFTR nicht. Da in Schritt 3 eine Prefix ID (`9`) auf den DHCPv6-Client des WAN gesetzt wurde, erhält das WAN-Interface selbst eine GUA aus dem delegierten /56 und funktioniert hier. Jedes andere Interface mit einer GUA (LAN, ein VLAN) funktioniert ebenfalls.
+Der GIF-Tunnel benötigt eine **Global Unicast Address (GUA)** als IPv6-Quelle (eine Link-Local-Adresse ist nicht routbar und erreicht den AFTR nicht). Da in Schritt 3 eine Prefix ID (`9`) auf den DHCPv6-Client des WAN gesetzt wurde, erhält das WAN-Interface eine GUA aus dem delegierten /56 und funktioniert hier. Jedes andere Interface mit einer GUA (LAN, ein VLAN) funktioniert ebenfalls.
 
 ![GIF-Tunnel-Konfiguration mit Verweis auf M-Nets AFTR](gif-tunnel.png)
 
@@ -184,7 +184,7 @@ Wenn IPv4 nichts zurückgibt oder der Tunnel nicht aufgebaut wird:
 
 ## Was nicht funktioniert
 
-- **Port Forwarding**: Man teilt sich eine öffentliche IPv4 mit anderen Kunden hinter dem AFTR. Eingehende IPv4-Verbindungen sind nicht möglich. Die Lösung ist, IPv6 für alles zu verwenden, das von außen erreichbar sein soll, oder durch einen VPS zu tunneln — das wird im nächsten Artikel behandelt.
+- **Port Forwarding**: Man teilt sich eine öffentliche IPv4 mit anderen Kunden hinter dem AFTR. Eingehende IPv4-Verbindungen sind nicht möglich. Die Lösung ist, IPv6 für alles zu verwenden, das von außen erreichbar sein soll, oder durch einen VPS zu tunneln (Thema des nächsten Artikels).
 - **VPNs über IPv4 von außen**: Gleicher Grund. WireGuard oder OpenVPN, das auf der öffentlichen IPv6-Adresse lauscht, funktioniert einwandfrei.
 
 ## Bekannte Probleme
