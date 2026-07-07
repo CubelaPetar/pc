@@ -15,23 +15,23 @@ showPagination: false
 
 ### Controller
 
-The person responsible for this website is named in the [Imprint](/impressum).
+Responsible for this website and the processing described here:
+
+**Petar Cubela** — [mail@petarcubela.de](mailto:mail@petarcubela.de)
 
 ### Hosting
 
-This site is hosted on a virtual private server operated by **Netcup GmbH**, Daimlerstraße 25, 76185 Karlsruhe, Germany. Server access logs may briefly contain your IP address, used solely for operating and securing the server. No logs are retained beyond operational necessity.
+This website is served from a virtual private server operated by **netcup GmbH**, Daimlerstraße 25, 76185 Karlsruhe, Germany. When you visit, your IP address is processed as technically necessary to deliver the pages. The web server does not store access logs.
 
-**Legal basis:** Art. 6(1)(f) GDPR — legitimate interest.
+**Legal basis:** Art. 6(1)(f) GDPR — legitimate interest in operating and securing the server.
 
 ### Web Analytics
 
-This site uses **[Plausible Analytics](https://plausible.io)**, a privacy-first open-source analytics tool, self-hosted on the same server as this website. No data is shared with third parties.
+This site uses a self-hosted instance of **[Plausible Analytics](https://plausible.io)** (Community Edition), running on the same server as the website. All data stays on my own infrastructure; nothing is shared with third parties.
 
-Plausible sets **no cookies** and uses no persistent identifiers. To count unique daily visitors, it briefly computes a one-way hash from your IP address, user-agent string, and a salt that is rotated and permanently deleted every 24 hours. The raw IP address is never stored. All resulting data is aggregated and cannot identify individual visitors.
+Plausible collects in aggregate: page URL, referrer, browser and operating system type, device type, and the country/region derived from the IP address. It sets **no cookies** and stores nothing on your device. To count unique visitors, a one-way hash is computed from the IP address, the user-agent string, and a random salt that is rotated and permanently deleted every 24 hours. The raw IP address is never stored. The resulting statistics are aggregated and cannot be linked to individual visitors.
 
-No consent banner is required because no information is stored on or read from your device (§ 25 TDDDG does not apply).
-
-**Legal basis:** Art. 6(1)(f) GDPR — legitimate interest in understanding aggregate traffic.
+**Legal basis:** Art. 6(1)(f) GDPR — legitimate interest in privacy-preserving reach measurement.
 
 ### No Other Data Collection
 
@@ -39,12 +39,10 @@ This site has no contact forms, comment sections, social media embeds, advertisi
 
 ### Your Rights
 
-Under GDPR (Arts. 15–21), you have the right to access, rectify, erase, and restrict processing of your data, as well as the right to data portability and the right to object to processing. To exercise these rights, contact the address listed in the [Imprint](/impressum).
+Under Arts. 15–20 GDPR you have the right to access, rectification, erasure, restriction of processing, and data portability.
 
-### Supervisory Authority
+**Right to object (Art. 21 GDPR):** where processing is based on legitimate interest, you may object at any time on grounds relating to your particular situation.
 
-You have the right to lodge a complaint with a data protection supervisory authority. The competent authority for Bavaria is:
+You also have the right to lodge a complaint with a data protection supervisory authority.
 
-**Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)**  
-Promenade 18, 91522 Ansbach  
-[www.lda.bayern.de](https://www.lda.bayern.de)
+To exercise these rights, contact me at the email address above. Note that this site retains no data that could identify you as a visitor, so such requests may be impossible to fulfil for lack of identifiable data (Art. 11 GDPR).

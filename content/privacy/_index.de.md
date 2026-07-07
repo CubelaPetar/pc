@@ -15,23 +15,23 @@ showPagination: false
 
 ### Verantwortlicher
 
-Die verantwortliche Person für diese Website ist im [Impressum](/de/impressum) benannt.
+Verantwortlich für diese Website und die hier beschriebene Verarbeitung:
+
+**Petar Cubela** — [mail@petarcubela.de](mailto:mail@petarcubela.de)
 
 ### Hosting
 
-Diese Website wird auf einem virtuellen Server der **Netcup GmbH**, Daimlerstraße 25, 76185 Karlsruhe, Deutschland, betrieben. Server-Zugriffsprotokolle können kurzzeitig Ihre IP-Adresse enthalten und dienen ausschließlich dem sicheren Betrieb des Servers. Eine weitergehende Speicherung findet nicht statt.
+Diese Website wird auf einem virtuellen Server der **netcup GmbH**, Daimlerstraße 25, 76185 Karlsruhe, Deutschland, betrieben. Beim Besuch wird Ihre IP-Adresse verarbeitet, soweit dies zur Auslieferung der Seiten technisch erforderlich ist. Der Webserver speichert keine Zugriffsprotokolle.
 
-**Rechtsgrundlage:** Art. 6 Abs. 1 lit. f DSGVO – berechtigtes Interesse.
+**Rechtsgrundlage:** Art. 6 Abs. 1 lit. f DSGVO – berechtigtes Interesse am sicheren Betrieb des Servers.
 
 ### Webanalyse
 
-Diese Website verwendet **[Plausible Analytics](https://plausible.io)**, ein datenschutzfreundliches Open-Source-Analysetool, das auf demselben Server selbst gehostet wird. Es werden keine Daten an Dritte weitergegeben.
+Diese Website verwendet eine selbst gehostete Instanz von **[Plausible Analytics](https://plausible.io)** (Community Edition), die auf demselben Server wie die Website läuft. Alle Daten verbleiben auf eigener Infrastruktur; es werden keine Daten an Dritte weitergegeben.
 
-Plausible setzt **keine Cookies** und verwendet keine dauerhaften Kennzeichner. Zur Zählung einzigartiger Tagesbesucher wird kurzzeitig ein nicht umkehrbarer Hash aus IP-Adresse, User-Agent und einem täglich rotierten und anschließend gelöschten Zufallswert berechnet. Die rohe IP-Adresse wird zu keinem Zeitpunkt gespeichert. Alle Daten liegen ausschließlich aggregiert vor und lassen keine Rückschlüsse auf einzelne Personen zu.
+Plausible erfasst in aggregierter Form: Seiten-URL, Referrer, Browser- und Betriebssystemtyp, Gerätetyp sowie das aus der IP-Adresse abgeleitete Land bzw. die Region. Es setzt **keine Cookies** und speichert nichts auf Ihrem Gerät. Zur Zählung einzigartiger Besucher wird ein nicht umkehrbarer Hash aus IP-Adresse, User-Agent und einem Zufallswert berechnet, der alle 24 Stunden rotiert und endgültig gelöscht wird. Die rohe IP-Adresse wird zu keinem Zeitpunkt gespeichert. Die entstehenden Statistiken sind aggregiert und lassen keine Rückschlüsse auf einzelne Besucher zu.
 
-Da keine Informationen auf Ihrem Gerät gespeichert oder abgerufen werden, ist kein Cookie-Banner erforderlich (§ 25 TDDDG findet keine Anwendung).
-
-**Rechtsgrundlage:** Art. 6 Abs. 1 lit. f DSGVO – berechtigtes Interesse an aggregierten Zugriffsdaten.
+**Rechtsgrundlage:** Art. 6 Abs. 1 lit. f DSGVO – berechtigtes Interesse an einer datenschutzfreundlichen Reichweitenmessung.
 
 ### Keine weiteren Datenerhebungen
 
@@ -39,12 +39,10 @@ Diese Website verfügt über keine Kontaktformulare, Kommentarfunktionen, Social
 
 ### Ihre Rechte
 
-Nach der DSGVO (Art. 15–21) haben Sie das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer Daten sowie auf Datenübertragbarkeit und Widerspruch gegen die Verarbeitung. Wenden Sie sich dazu an die im [Impressum](/de/impressum) genannte Adresse.
+Nach Art. 15–20 DSGVO haben Sie das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit.
 
-### Aufsichtsbehörde
+**Widerspruchsrecht (Art. 21 DSGVO):** Soweit die Verarbeitung auf berechtigtem Interesse beruht, können Sie ihr jederzeit aus Gründen, die sich aus Ihrer besonderen Situation ergeben, widersprechen.
 
-Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Für Bayern ist zuständig:
+Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.
 
-**Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)**  
-Promenade 18, 91522 Ansbach  
-[www.lda.bayern.de](https://www.lda.bayern.de)
+Zur Ausübung dieser Rechte wenden Sie sich an die oben genannte E-Mail-Adresse. Beachten Sie, dass diese Website keine Daten speichert, die Sie als Besucher identifizieren könnten; entsprechende Anfragen können daher mangels identifizierbarer Daten möglicherweise nicht erfüllt werden (Art. 11 DSGVO).
