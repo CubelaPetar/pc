@@ -1,7 +1,7 @@
 ---
 title: "About Me"
 layout: "single"
-description: "Attempt in self-assessment."
+description: "An attempt at self-assessment."
 date: 2026-06-05
 showDate: false
 showDateUpdated: false
@@ -23,16 +23,18 @@ So many people have done this already but I think this is a great idea to introd
 
 This is my homepage. Thanks for stopping by.
 
-I am a System Administrator, a Linux enthusiast, with a love for complex network infrastructures, a Physicist by degree, and I am trying my best to become better at writing texts. I love poetry, lyricism and classical books and music.
+I am a system administrator, a Linux enthusiast with a love for complex network infrastructures, and a physicist by degree. I am trying my best to become better at writing texts. I love poetry and classical books and music.
 
-You will find here, presumably, technical blog articles about self-hosting, open source software, network topics, administration of Linux systems, maybe a bit physics, and just texts about my own thoughts.
+Here you will find mostly technical blog articles about self-hosting, open source software, networking (OPNsense, IPv6), the administration of Linux systems, maybe a bit of physics, and texts about my own thoughts.
 
 I will write texts in German and English. Some in both languages, some in only one.
 
-## history
+```bash 
+$ history
+```
 
-After finishing school I developed a deep interest for science and physics; especially theoretical physics. Thus, I decided I wanted to study physics which I did at the LMU in Munich, Germany.
+After finishing school I developed a deep interest in science and physics, especially theoretical physics. Thus, I decided I wanted to study physics, which I did at the LMU in Munich, Germany.
 
-Linux is great to procrastinate while you should be working on your masters thesis. :-)
+Linux is great to procrastinate while you should be working on your master's thesis. :-)
 
-
+That procrastination eventually became my profession: today I administrate Linux systems and networks for a living.
