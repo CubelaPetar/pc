@@ -1,5 +1,5 @@
 ---
-title: "Network Segmentation"
+title: "My Experience with Network Segmentation"
 description: "What network segmentation is, why NIS2 and the BSI care about it, and which segments make sense for which network size."
 date: 2026-10-09
 lastmod: 2026-10-09
@@ -285,3 +285,7 @@ And one last thing, because "zero-trust" comes up in every vendor presentation: 
 
 - [CMU SEI: Network Segmentation: Concepts and Practices (2020)](https://www.sei.cmu.edu/blog/network-segmentation-concepts-and-practices/)
 - [it-planet: NIS2 and network segmentation, a practical guide](https://blog.it-planet.com/en/nis2-and-network-segmentation-a-practical-guide/)
+
+---
+
+*This article was written with the assistance of Claude (Anthropic).*
