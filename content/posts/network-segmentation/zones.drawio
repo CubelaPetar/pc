@@ -31,10 +31,7 @@
           <mxGeometry x="660" y="150" width="270" height="170" as="geometry" />
         </mxCell>
         <mxCell id="s_mgmt" value="&lt;b&gt;MGMT&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="680" y="185" width="110" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="s_monit" value="&lt;b&gt;MONIT / LOG&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="800" y="185" width="110" height="50" as="geometry" />
+          <mxGeometry x="680" y="185" width="230" height="50" as="geometry" />
         </mxCell>
         <mxCell id="s_backup" value="&lt;b&gt;BACKUP&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
           <mxGeometry x="680" y="250" width="110" height="50" as="geometry" />
@@ -50,20 +47,17 @@
         <mxCell id="s_srv" value="&lt;b&gt;SERVER&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
           <mxGeometry x="30" y="415" width="150" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="s_infra" value="&lt;b&gt;INFRA&lt;/b&gt;&lt;br&gt;DNS, DHCP, AD" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+        <mxCell id="s_infra" value="&lt;b&gt;CLIENT&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
           <mxGeometry x="200" y="415" width="150" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="s_clt" value="&lt;b&gt;CLIENT&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+        <mxCell id="s_clt" value="&lt;b&gt;WLAN&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
           <mxGeometry x="370" y="415" width="150" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="s_prt" value="&lt;b&gt;PRT&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+        <mxCell id="s_prt" value="&lt;b&gt;PRINT&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
           <mxGeometry x="30" y="480" width="150" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="s_voice" value="&lt;b&gt;VOICE&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+        <mxCell id="s_voice" value="&lt;b&gt;PHONE&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
           <mxGeometry x="200" y="480" width="150" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="s_vpn" value="&lt;b&gt;VPN&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
-          <mxGeometry x="370" y="480" width="150" height="50" as="geometry" />
         </mxCell>
 
         <!-- Untrusted internal zone -->
