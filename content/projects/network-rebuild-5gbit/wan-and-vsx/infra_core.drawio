@@ -1,0 +1,175 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="5ExzGT3CMT5lbcBnGnnl">
+    <mxGraphModel dx="1204" dy="906" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-32" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillStyle=auto;dashed=1;dashPattern=8 8;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;" value="Switch VSX" vertex="1">
+          <mxGeometry height="103" width="360" x="220" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillStyle=auto;dashed=1;dashPattern=8 8;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;" value="Firewall&amp;nbsp;&lt;div&gt;HA Cluster&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="360" x="220" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-15" edge="1" parent="1" source="0WZ7TMoHun8M5oBwEj94-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;strokeWidth=2;" target="0WZ7TMoHun8M5oBwEj94-12" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 11px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;DAC Cable 10 Gbit/s&lt;/span&gt;">
+          <mxGeometry relative="1" x="0.6" y="-14" as="geometry">
+            <mxPoint x="4" y="-10" as="offset" />
+            <Array as="points">
+              <mxPoint x="390" y="340" />
+              <mxPoint x="310" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-1" parent="1" style="verticalAlign=middle;verticalLabelPosition=middle;labelPosition=right;align=center;html=1;outlineConnect=0;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.switch;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;div&gt;Switch Aruba 6100 24G&lt;/div&gt;&lt;div&gt;WAN Switch&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&amp;nbsp;xyz-sw-wan&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="30" width="100" x="350" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-3" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;fontSize=11;strokeWidth=3;" value="Optical Fibre 5 Gbit/s">
+          <mxGeometry height="50" relative="1" width="50" x="-0.007" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="399" y="270" as="sourcePoint" />
+            <mxPoint x="399" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="10" width="10" x="395" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="SFP+ Module by ISP" vertex="1">
+          <mxGeometry height="30" width="60" x="260" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-10" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="320" y="240" as="sourcePoint" />
+            <mxPoint x="380" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-12" parent="1" style="verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#b1ddf0;strokeColor=#10739e;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.router;" value="Sophos XGS4300" vertex="1">
+          <mxGeometry height="30" width="100" x="260" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-13" parent="1" style="verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#b1ddf0;strokeColor=#10739e;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.router;" value="Sophos XGS4300" vertex="1">
+          <mxGeometry height="30" width="100" x="440" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-14" edge="1" parent="1" source="0WZ7TMoHun8M5oBwEj94-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;strokeWidth=2;" target="0WZ7TMoHun8M5oBwEj94-13" value="HA Link">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-16" edge="1" parent="1" source="0WZ7TMoHun8M5oBwEj94-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;strokeWidth=2;" target="0WZ7TMoHun8M5oBwEj94-13" value="DAC Cable 10 Gbit/s">
+          <mxGeometry relative="1" x="0.6" y="14" as="geometry">
+            <mxPoint x="-4" y="-10" as="offset" />
+            <Array as="points">
+              <mxPoint x="410" y="340" />
+              <mxPoint x="490" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-30" edge="1" parent="1" source="0WZ7TMoHun8M5oBwEj94-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;strokeWidth=2;" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 11px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;DAC Cable 10 Gbit/s&lt;/span&gt;">
+          <mxGeometry relative="1" x="0.5804" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="310" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nXuhb00dKxUryxOMI2zQ-9" edge="1" parent="1" source="0WZ7TMoHun8M5oBwEj94-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;exitX=0.9;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.1;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;" target="0WZ7TMoHun8M5oBwEj94-20" value="&lt;font style=&quot;font-size: 8px;&quot;&gt;keepalive (copper)&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="360" y="603" />
+              <mxPoint x="360" y="613" />
+              <mxPoint x="440" y="613" />
+              <mxPoint x="440" y="603" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-19" parent="1" style="verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#bac8d3;strokeColor=#23445d;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.switch;fontSize=10;" value="&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;Core Switch&lt;/span&gt;&lt;/div&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;Switch Aruba 8360-16Y2C v2&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;xyz-sw-ug-02&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="100" x="260" y="573" as="geometry" />
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-31" edge="1" parent="1" source="0WZ7TMoHun8M5oBwEj94-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;endArrow=none;endFill=0;strokeWidth=2;" target="0WZ7TMoHun8M5oBwEj94-18" value="DAC Cable 10 Gbit/s">
+          <mxGeometry relative="1" x="0.5804" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-20" parent="1" style="verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#bac8d3;strokeColor=#23445d;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.switch;fontSize=10;" value="&lt;div&gt;Core Switch&lt;/div&gt;Switch Aruba 8360-16Y2C v2&lt;div&gt;xyz-sw-ug-03&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="100" x="440" y="573" as="geometry" />
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-23" parent="1" style="ellipse;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;labelBackgroundColor=none;shapeInside=0;" value="&lt;font style=&quot;font-size: 8px;&quot;&gt;LAG 128&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="25" x="387.5" y="568" as="geometry" />
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-26" edge="1" parent="1" source="0WZ7TMoHun8M5oBwEj94-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;exitX=0.987;exitY=0.435;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=6;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" value="100Gbit/s">
+          <mxGeometry relative="1" x="0.0079" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="411.5" y="585.48" as="sourcePoint" />
+            <mxPoint x="439" y="585.48" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-27" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="412.5" y="590.48" as="sourcePoint" />
+            <mxPoint x="439.5" y="590.48" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-28" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.011;entryY=0.447;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;fontSize=6;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" target="0WZ7TMoHun8M5oBwEj94-23" value="100Gbit/s">
+          <mxGeometry relative="1" x="0.0075" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="361" y="586" as="sourcePoint" />
+            <mxPoint x="388.5" y="586" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-29" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="361" y="591" as="sourcePoint" />
+            <mxPoint x="388" y="591" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-36" edge="1" parent="1" source="0WZ7TMoHun8M5oBwEj94-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;endArrow=none;endFill=0;strokeWidth=2;" target="0WZ7TMoHun8M5oBwEj94-32" value="&lt;meta charset=&quot;utf-8&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 11px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;DAC 10 Gbit/s&lt;/span&gt;">
+          <mxGeometry relative="1" x="0.23" y="10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="390" y="690" />
+              <mxPoint x="310" y="690" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-37" edge="1" parent="1" source="SIIII-pMUh-0MXoIYpc6-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;endArrow=none;endFill=0;strokeWidth=2;" target="0WZ7TMoHun8M5oBwEj94-32" value="DAC 10 Gbit/s">
+          <mxGeometry relative="1" x="-0.0456" y="-10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="410" y="690" />
+              <mxPoint x="490" y="690" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-35" parent="1" style="verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#bac8d3;strokeColor=#23445d;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.switch;fontSize=10;" value="&lt;div&gt;Distribution Switch&lt;/div&gt;Switch Aruba&amp;nbsp;&lt;span class=&quot;asset-row-value&quot;&gt;6100 48G CL4 4SFP+&lt;/span&gt;&lt;div&gt;&lt;span class=&quot;asset-row-value&quot;&gt;xyz-sw-ug-01&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="100" x="350" y="773" as="geometry" />
+        </mxCell>
+        <mxCell id="0WZ7TMoHun8M5oBwEj94-38" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;Static WAN:&lt;/b&gt;&lt;div&gt;&lt;b&gt;/29 Net: 5 usable IPs&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="150" x="405" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="nXuhb00dKxUryxOMI2zQ-2" edge="1" parent="1" source="0WZ7TMoHun8M5oBwEj94-19" style="endArrow=none;html=1;rounded=0;strokeWidth=2;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="319.99923076923096" y="500" as="sourcePoint" />
+            <mxPoint x="458.46076923076953" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nXuhb00dKxUryxOMI2zQ-4" edge="1" parent="1" source="0WZ7TMoHun8M5oBwEj94-20" style="endArrow=none;html=1;rounded=0;strokeWidth=2;entryX=0.9;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" target="0WZ7TMoHun8M5oBwEj94-12" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="330.77" y="510" as="sourcePoint" />
+            <mxPoint x="469.23153846153855" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SIIII-pMUh-0MXoIYpc6-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;dashed=1;dashPattern=12 12;" value="LAG 12" vertex="1">
+          <mxGeometry height="40" width="120" x="412.5" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="SIIII-pMUh-0MXoIYpc6-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;dashed=1;dashPattern=12 12;" value="LAG 11" vertex="1">
+          <mxGeometry height="40" width="120" x="260" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="SIIII-pMUh-0MXoIYpc6-7" edge="1" parent="1" source="0WZ7TMoHun8M5oBwEj94-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;endArrow=none;endFill=0;strokeWidth=2;" target="SIIII-pMUh-0MXoIYpc6-6" value="">
+          <mxGeometry relative="1" x="-0.1429" y="-10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points" />
+            <mxPoint x="410" y="773" as="sourcePoint" />
+            <mxPoint x="490" y="653" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SIIII-pMUh-0MXoIYpc6-6" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;dashed=1;dashPattern=12 12;" value="LAG 21" vertex="1">
+          <mxGeometry height="40" width="120" x="340" y="720" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
