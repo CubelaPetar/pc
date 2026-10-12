@@ -151,8 +151,8 @@ vsx
 ! xyz-sw-ug-03 — same system-mac, role secondary, keepalive reversed
 ```
 
-Ping across the keepalive before applying the `vsx` block. VSX will not form over a keepalive
-that does not pass traffic, and on the day that cable was the only new one in the step.
+Ping across the keepalive before applying the `vsx` block. On the day that cable was the only
+new one in the step, so it was the obvious thing to check first.
 
 ## The spanning tree priority
 

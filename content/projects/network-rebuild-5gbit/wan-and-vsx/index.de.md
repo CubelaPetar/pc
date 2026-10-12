@@ -154,9 +154,8 @@ vsx
 ! xyz-sw-ug-03 — gleiche system-mac, Rolle secondary, Keepalive umgekehrt
 ```
 
-Vor dem Anwenden des `vsx`-Blocks über das Keepalive pingen. VSX bildet sich nicht über ein
-Keepalive, das keinen Traffic durchlässt, und am Tag selbst war dieses Kabel das einzige neue
-in diesem Schritt.
+Vor dem Anwenden des `vsx`-Blocks über das Keepalive pingen. Am Tag selbst war dieses Kabel
+das einzige neue in diesem Schritt, also war es das Erste, was zu prüfen war.
 
 ## Die Spanning-Tree-Priorität
 
