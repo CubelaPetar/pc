@@ -7,6 +7,7 @@ showReadingTime: false
 showWordCount: false
 showTableOfContents: false
 showAuthor: false
+showComments: false
 showTaxonomies: false
 showPagination: false
 ---
@@ -33,6 +34,10 @@ Plausible collects in aggregate: page URL, referrer, browser and operating syste
 
 **Legal basis:** Art. 6(1)(f) GDPR — legitimate interest in privacy-preserving reach measurement.
 
+### Contact by Email
+
+If you email me, I process your address and message to answer you. **Legal basis:** Art. 6(1)(f) GDPR.
+
 ### No Other Data Collection
 
 This site has no contact forms, comment sections, social media embeds, advertising, or third-party scripts. No other personal data is processed.
@@ -45,4 +50,4 @@ Under Arts. 15–20 GDPR you have the right to access, rectification, erasure, r
 
 You also have the right to lodge a complaint with a data protection supervisory authority.
 
-To exercise these rights, contact me at the email address above. Note that this site retains no data that could identify you as a visitor, so such requests may be impossible to fulfil for lack of identifiable data (Art. 11 GDPR).
+To exercise these rights, contact me at the email address above. Apart from emails you send me, this site retains no data that could identify you as a visitor, so such requests may otherwise be impossible to fulfil for lack of identifiable data (Art. 11 GDPR).

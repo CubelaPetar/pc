@@ -75,6 +75,7 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   showDateUpdated = true
   showAuthor = true
   showAuthorBottom = true
+  showComments = true # renders layouts/partials/comments.html ("reply by email" line)
   showHero = false
   # heroStyle = "basic" # valid options: basic, big, background, thumbAndBackground
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground

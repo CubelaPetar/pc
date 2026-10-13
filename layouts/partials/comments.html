@@ -1,0 +1,14 @@
+{{/* Rendered by Blowfish's article-comments hook (showComments = true): a "reply by email" line instead of a comment widget. */}}
+{{ $email := site.Params.author.email }}
+{{ $subject := replace (urlquery (printf "Re: %s" .Title)) "+" "%20" }}
+<div class="prose dark:prose-invert">
+  <p>
+    {{ if eq .Lang "de" }}
+      Fragen, Korrekturen oder eigene Erfahrungen dazu?
+      <a href="mailto:{{ $email }}?subject={{ $subject | safeURL }}">Schreib mir eine E-Mail.</a>
+    {{ else }}
+      Questions, corrections or your own experience with this?
+      <a href="mailto:{{ $email }}?subject={{ $subject | safeURL }}">Write me an email.</a>
+    {{ end }}
+  </p>
+</div>

@@ -9,6 +9,7 @@ showReadingTime: false
 showWordCount: false
 showTableOfContents: false
 showAuthor: false
+showComments: false
 showTaxonomies: false
 showPagination: false
 ---

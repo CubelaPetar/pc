@@ -7,6 +7,7 @@ showReadingTime: false
 showWordCount: false
 showTableOfContents: false
 showAuthor: false
+showComments: false
 showTaxonomies: false
 showPagination: false
 ---
@@ -33,6 +34,10 @@ Plausible erfasst in aggregierter Form: Seiten-URL, Referrer, Browser- und Betri
 
 **Rechtsgrundlage:** Art. 6 Abs. 1 lit. f DSGVO – berechtigtes Interesse an einer datenschutzfreundlichen Reichweitenmessung.
 
+### Kontakt per E-Mail
+
+Wenn Sie mir eine E-Mail schreiben, verarbeite ich Ihre Adresse und Nachricht, um Ihnen zu antworten. **Rechtsgrundlage:** Art. 6 Abs. 1 lit. f DSGVO.
+
 ### Keine weiteren Datenerhebungen
 
 Diese Website verfügt über keine Kontaktformulare, Kommentarfunktionen, Social-Media-Einbindungen, Werbung oder Drittanbieter-Skripte. Es werden keine weiteren personenbezogenen Daten verarbeitet.
@@ -45,4 +50,4 @@ Nach Art. 15–20 DSGVO haben Sie das Recht auf Auskunft, Berichtigung, Löschun
 
 Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.
 
-Zur Ausübung dieser Rechte wenden Sie sich an die oben genannte E-Mail-Adresse. Beachten Sie, dass diese Website keine Daten speichert, die Sie als Besucher identifizieren könnten; entsprechende Anfragen können daher mangels identifizierbarer Daten möglicherweise nicht erfüllt werden (Art. 11 DSGVO).
+Zur Ausübung dieser Rechte wenden Sie sich an die oben genannte E-Mail-Adresse. Abgesehen von E-Mails, die Sie mir senden, speichert diese Website keine Daten, die Sie als Besucher identifizieren könnten; entsprechende Anfragen können daher andernfalls mangels identifizierbarer Daten möglicherweise nicht erfüllt werden (Art. 11 DSGVO).
