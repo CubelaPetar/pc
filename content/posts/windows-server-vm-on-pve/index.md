@@ -3,7 +3,7 @@ title: "Installing a Windows Server VM on Proxmox VE"
 description: "Step by step: setting up a Windows Server VM on Proxmox VE, including VirtIO drivers and the QEMU guest agent."
 date: 2026-10-17T09:27:31+02:00
 lastmod: 2026-10-17T09:27:31+02:00
-draft: true
+draft: false
 categories:
   - tutorial
 tags:
